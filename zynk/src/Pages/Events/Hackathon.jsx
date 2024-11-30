@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Calendar, MapPin, Users } from "lucide-react";
+import image1 from "../../assets/FeaturedHackathons/GenAI.png"
+import image2 from "../../assets/FeaturedHackathons/Ethindia.jpeg"
+import image3 from "../../assets/FeaturedHackathons/GenAI.png"
+import image4 from "../../assets/FeaturedHackathons/GenAI.png"
+import image5 from "../../assets/FeaturedHackathons/GenAI.png"
+import image6 from "../../assets/FeaturedHackathons/GenAI.png"
+import image7 from "../../assets/FeaturedHackathons/GenAI.png"
+import image8 from "../../assets/FeaturedHackathons/GenAI.png"
+import image9 from "../../assets/FeaturedHackathons/GenAI.png"
+import image10 from "../../assets/FeaturedHackathons/GenAI.png"
 
 const Hackathon = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -18,7 +28,7 @@ const Hackathon = () => {
       id: 1,
       title: 'Gen AI',
       category: 'aiml',
-      image: '/images/genai-hackathon.jpg',
+      image: image1,
       date: 'Dec 6-8, 2024',
       location: 'Thomson Reuters',
       participants: '200 participating',
@@ -31,7 +41,7 @@ const Hackathon = () => {
       id: 2,
       title: 'ETHINDIA',
       category: 'blockchain',
-      image: '/images/ethereum-hackathon.jpg',
+      image: image2,
       date: 'Dec 6-8, 2024',
       location: 'KTPO,Bengaluru',
       participants: '800 participating',
@@ -44,7 +54,7 @@ const Hackathon = () => {
       id: 3,
       title: 'CyberSecurity Hackathon',
       category: 'cybersecurity',
-      image: '/images/cyber-hackathon.jpg',
+      image: image3,
       date: 'Dec 4-6, 2024',
       location: 'Pullman,Delhi',
       participants: '600 participating',
@@ -52,7 +62,99 @@ const Hackathon = () => {
       sponsors: ['CrowdStrike', 'FireEye', 'Cisco'],
       prizePool: '4,50,000',
       isHot: false
-    }
+    },
+    {
+      id: 4,
+      title: 'Defy25',
+      category: 'blockchain',
+      image: image4,
+      date: 'Dec 8-10,2025',
+      location: 'Online',
+      participants: '800 participating',
+      tags: ['Web3', 'DeFi', 'Blockchain'],
+      sponsors: ['Ethereum Foundation', 'Binance', 'Polygon'],
+      prizePool: '$550',
+      isHot: true
+    },
+    {
+      id: 5,
+      title: 'GenAI Mixer',
+      category: 'aiml',
+      image: image5,
+      date: 'Dec 14,2025',
+      location: 'Elastic technologies pvt ltd',
+      participants: '200 participating',
+      tags: ['AI', 'GenAI'],
+      sponsors: ['Ethereum Foundation', 'Binance', 'Polygon'],
+      prizePool: '35,000',
+      isHot: true
+    },
+    {
+      id: 6,
+      title: 'Defy25',
+      category: 'Code Kshetra',
+      image: image6,
+      date: 'Feb 21-22,2025',
+      location: 'New Delhi',
+      participants: '200 participating',
+      tags: ['Web3', 'DeFi', 'Blockchain'],
+      sponsors: ['Ethereum Foundation', 'Binance', 'Polygon'],
+      prizePool: '$550',
+      isHot: true
+    },
+    {
+      id: 7,
+      title: 'Full stack dev',
+      category: 'fullstack',
+      image: '/images/ethereum-hackathon.jpg',
+      date: 'image7',
+      location: 'Online',
+      participants: '50 participating',
+      tags: ['Webdev', 'Full Stack', 'React'],
+      sponsors: ['Ethereum Foundation', 'Binance', 'Polygon'],
+      prizePool: '5000',
+      isHot: true
+    },
+    {
+      id: 8,
+      title: 'CTF',
+      category: 'cybersecurity',
+      image: image8,
+      date: 'Dec 8-10,2025',
+      location: 'Offline',
+      participants: '50 participating',
+      tags: ['CTF', 'Hack', 'Capture the flag'],
+      sponsors: ['TBA'],
+      prizePool: '50000',
+      isHot: true
+    }, 
+    {
+      id: 9,
+      title: 'Full stack dev',
+      category: 'fullstack',
+      image: image9,
+      date: 'Dec 8-10,2025',
+      location: 'Online',
+      participants: '50 participating',
+      tags: ['Webdev', 'Full Stack', 'React'],
+      sponsors: ['Ethereum Foundation', 'Binance', 'Polygon'],
+      prizePool: '1000',
+      isHot: true
+    },
+    {
+      id: 10,
+      title: 'React Dev',
+      category: 'fullstack',
+      image: '/images/ethereum-hackathon.jpg',
+      date: image10,
+      location: 'Online',
+      participants: '50 participating',
+      tags: ['Webdev', 'Full Stack', 'React'],
+      sponsors: ['Godaddy', 'XYZ', 'Polygon'],
+      prizePool: '2000',
+      isHot: false
+    },
+  
   ];
 
   const filteredHackathons = activeCategory === 'all' 

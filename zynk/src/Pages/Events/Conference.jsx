@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Calendar, MapPin, Star, Clock, Users, ChevronLeft, ChevronRight } from 'lucide-react';
-
+import image1 from "../../assets/FeaturedEvents/htmd.png"
+import image2 from "../../assets/Conference/devops.png"
+import image4 from "../../assets/Featuredevents/AIcamp.png"
+import image3 from "../../assets/Conference/web3.png"
+import image5 from "../../assets/Conference/blockchain.png"
+import image6 from "../../assets/Conference/devops.png"
+import image7 from "../../assets/Conference/datascience.png"
 const EventCard = ({ event }) => (
   <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-secondary-200 hover:shadow-lg transition-all h-full">
     <div className="relative">
@@ -71,33 +77,37 @@ const EventCard = ({ event }) => (
 
 const EventCarousel = ({ events, title }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const totalGroups = Math.ceil(events.length / 3);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === events.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalGroups);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? events.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalGroups) % totalGroups);
+  };
+
+  const getCurrentEvents = () => {
+    const startIdx = currentIndex * 3;
+    return events.slice(startIdx, startIdx + 3);
   };
 
   return (
-    <div className="relative">
+    <div className="relative mb-16">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-primary-800">{title}</h2>
         <div className="flex gap-2">
           <button
             onClick={prevSlide}
             className="p-2 rounded-full bg-white border border-secondary-200 hover:bg-primary-50 transition-colors"
+            disabled={totalGroups <= 1}
           >
             <ChevronLeft className="w-5 h-5 text-primary-600" />
           </button>
           <button
             onClick={nextSlide}
             className="p-2 rounded-full bg-white border border-secondary-200 hover:bg-primary-50 transition-colors"
+            disabled={totalGroups <= 1}
           >
             <ChevronRight className="w-5 h-5 text-primary-600" />
           </button>
@@ -105,36 +115,33 @@ const EventCarousel = ({ events, title }) => {
       </div>
 
       <div className="overflow-hidden">
-        <div 
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {events.map((event) => (
-            <div key={event.id} className="w-full flex-shrink-0 px-2">
-              <EventCard event={event} />
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {getCurrentEvents().map((event) => (
+            <EventCard key={event.id} event={event} />
           ))}
         </div>
       </div>
 
-      <div className="flex justify-center mt-4 gap-2">
-        {events.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              index === currentIndex ? 'bg-primary-600' : 'bg-secondary-300'
-            }`}
-          />
-        ))}
-      </div>
+      {totalGroups > 1 && (
+        <div className="flex justify-center mt-6 gap-2">
+          {Array.from({ length: totalGroups }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentIndex ? 'bg-primary-600' : 'bg-secondary-300'
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
 const Conference = () => {
-  const eventTypes = {
-    conference: [
+  const events = {
+    conferences: [
       {
         id: 1,
         title: "HTMD Conference",
@@ -146,7 +153,7 @@ const Conference = () => {
         attendees: 1200,
         price: "$299",
         type: "Conference",
-        image: "/api/placeholder/600/300",
+        image: image1,
         tags: ["Technology", "Innovation", "AI"]
       },
       {
@@ -160,13 +167,41 @@ const Conference = () => {
         attendees: 800,
         price: "$199",
         type: "Conference",
-        image: "/api/placeholder/600/300",
+        image: image2,
         tags: ["DevOps", "Cloud", "Infrastructure"]
-      }
-    ],
-    workshop: [
+      },
       {
         id: 3,
+        title: "Web3 Conference",
+        date: "Dec 20, 2024",
+        time: "9:00 AM - 6:00 PM",
+        location: "Whitefield, Bengaluru",
+        venue: "Sheraton Grand",
+        rating: 4.9,
+        attendees: 600,
+        price: "$249",
+        type: "Conference",
+        image: image3,
+        tags: ["Web3", "Blockchain", "DeFi"]
+      },
+      {
+        id: 6,
+        title: "Cloud Summit",
+        date: "Dec 22, 2024",
+        time: "9:00 AM - 6:00 PM",
+        location: "Electronic City, Bengaluru",
+        venue: "Tech Park Convention Center",
+        rating: 4.8,
+        attendees: 900,
+        price: "$279",
+        type: "Conference",
+        image: image4,
+        tags: ["Cloud", "AWS", "Azure"]
+      }
+    ],
+    workshops: [
+      {
+        id: 4,
         title: "AI Camp",
         date: "Dec 07, 2024",
         time: "10:00 AM - 1:00 PM",
@@ -176,11 +211,11 @@ const Conference = () => {
         attendees: 300,
         price: "Free",
         type: "Workshop",
-        image: "/api/placeholder/600/300",
+        image: image4,
         tags: ["AI", "ML", "Hands-on"]
       },
       {
-        id: 4,
+        id: 5,
         title: "Blockchain Workshop",
         date: "Dec 10, 2024",
         time: "2:00 PM - 6:00 PM",
@@ -190,8 +225,36 @@ const Conference = () => {
         attendees: 150,
         price: "$49",
         type: "Workshop",
-        image: "/api/placeholder/600/300",
+        image: image5,
         tags: ["Blockchain", "Web3", "DApps"]
+      },
+      {
+        id: 6,
+        title: "DevOps Masterclass",
+        date: "Dec 12, 2024",
+        time: "10:00 AM - 4:00 PM",
+        location: "Koramangala, Bengaluru",
+        venue: "Tech Center",
+        rating: 4.8,
+        attendees: 200,
+        price: "$79",
+        type: "Workshop",
+        image: image6,
+        tags: ["DevOps", "Docker", "Kubernetes"]
+      },
+      {
+        id: 7,
+        title: "Data Science Workshop",
+        date: "Dec 14, 2024",
+        time: "9:00 AM - 5:00 PM",
+        location: "HSR Layout, Bengaluru",
+        venue: "Analytics Hub",
+        rating: 4.6,
+        attendees: 250,
+        price: "$69",
+        type: "Workshop",
+        image: image7,
+        tags: ["Data Science", "Python", "Analytics"]
       }
     ]
   };
@@ -209,17 +272,8 @@ const Conference = () => {
           </p>
         </div>
 
-        <div className="space-y-16">
-          <EventCarousel 
-            events={eventTypes.conference} 
-            title="Featured Conferences" 
-          />
-          
-          <EventCarousel 
-            events={eventTypes.workshop} 
-            title="Technical Workshops" 
-          />
-        </div>
+        <EventCarousel events={events.conferences} title="Featured Conferences" />
+        <EventCarousel events={events.workshops} title="Technical Workshops" />
       </div>
     </div>
   );
