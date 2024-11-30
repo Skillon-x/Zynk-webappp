@@ -87,7 +87,6 @@ const OrganizeEvent = () => {
     </button>
   );
 
-  // Rest of the component remains the same...
   const renderBasicInfo = () => (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -124,8 +123,8 @@ const OrganizeEvent = () => {
             type="text"
             className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
             placeholder="Enter description of Hackathon"
-            value={formData.name}
-            onChange={e => setFormData({...formData, name: e.target.value})}
+            value={formData.description}
+            onChange={e => setFormData({...formData, description: e.target.value})}
           />
         </div>
         <div>
@@ -136,8 +135,8 @@ const OrganizeEvent = () => {
             type="text"
             className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
             placeholder="Enter your organization"
-            value={formData.name}
-            onChange={e => setFormData({...formData, name: e.target.value})}
+            value={formData.university}
+            onChange={e => setFormData({...formData, university: e.target.value})}
           />
         </div>
         <div>
@@ -148,8 +147,8 @@ const OrganizeEvent = () => {
             type="text"
             className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
             placeholder="Enter the theme"
-            value={formData.name}
-            onChange={e => setFormData({...formData, name: e.target.value})}
+            value={formData.format}
+            onChange={e => setFormData({...formData, format: e.target.value})}
           />
         </div>
         <div>
@@ -161,7 +160,7 @@ const OrganizeEvent = () => {
             min="1"
             className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
             value={formData.participationFee}
-            onChange={e => setFormData({...formData, maxTeamSize: e.target.value})}
+            onChange={e => setFormData({...formData, participationFee: e.target.value})}
           />
         </div>
         <div>
@@ -176,8 +175,6 @@ const OrganizeEvent = () => {
             onChange={e => setFormData({...formData, expectedParticipants: e.target.value})}
           />
         </div>
-        
-        
       </div>
     </div>
   );
@@ -214,16 +211,13 @@ const OrganizeEvent = () => {
             Domain (AI,Cybersecurity,Blockchain,Frontend etc)
           </label>
           <input
-            type="number"
-            min="1"
+            type="text"
             className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
-            value={formData.maxTeamSize}
-            onChange={e => setFormData({...formData, maxTeamSize: e.target.value})}
+            placeholder="Enter domains"
+            value={formData.domains}
+            onChange={e => setFormData({...formData, domains: e.target.value.split(',')})}
           />
         </div>
-       
-        
-
       </div>
     </div>
   );
@@ -328,6 +322,168 @@ const OrganizeEvent = () => {
     </div>
   );
 
+  const renderJudgesAndSpeakers = () => (
+    <div className="space-y-8">
+      {/* Judges Section */}
+      <div>
+        <h3 className="text-lg font-semibold text-primary-700 mb-4">Judges</h3>
+        {formData.judges.map((judge, index) => (
+          <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 pb-6 border-b border-primary-100">
+            <div>
+              <label className="block text-sm font-medium text-primary-700 mb-1">
+                Judge Name
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
+                value={judge.name}
+                onChange={e => {
+                  const newJudges = [...formData.judges];
+                  newJudges[index].name = e.target.value;
+                  setFormData({ ...formData, judges: newJudges });
+                }}
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-primary-700 mb-1">
+                Designation
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
+                value={judge.designation}
+                onChange={e => {
+                  const newJudges = [...formData.judges];
+                  newJudges[index].designation = e.target.value;
+                  setFormData({ ...formData, judges: newJudges });
+                }}
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-primary-700 mb-1">
+                Organization
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
+                value={judge.organization}
+                onChange={e => {
+                  const newJudges = [...formData.judges];
+                  newJudges[index].organization = e.target.value;
+                  setFormData({ ...formData, judges: newJudges });
+                }}
+              />
+            </div>
+            <div>
+            <label className="block text-sm font-medium text-primary-700 mb-1">
+                LinkedIn Profile
+              </label>
+              <input
+                type="url"
+                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
+                value={judge.linkedinProfile}
+                onChange={e => {
+                  const newJudges = [...formData.judges];
+                  newJudges[index].linkedinProfile = e.target.value;
+                  setFormData({ ...formData, judges: newJudges });
+                }}
+              />
+            </div>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="px-4 py-2 text-primary-600 border border-primary-600 rounded-lg hover:bg-primary-50"
+          onClick={() => setFormData({
+            ...formData,
+            judges: [...formData.judges, { name: '', designation: '', organization: '', linkedinProfile: '' }]
+          })}
+        >
+          Add Judge
+        </button>
+      </div>
+
+      {/* Speakers Section */}
+      <div>
+        <h3 className="text-lg font-semibold text-primary-700 mb-4">Speakers</h3>
+        {formData.speakers.map((speaker, index) => (
+          <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 pb-6 border-b border-primary-100">
+            <div>
+              <label className="block text-sm font-medium text-primary-700 mb-1">
+                Speaker Name
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
+                value={speaker.name}
+                onChange={e => {
+                  const newSpeakers = [...formData.speakers];
+                  newSpeakers[index].name = e.target.value;
+                  setFormData({ ...formData, speakers: newSpeakers });
+                }}
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-primary-700 mb-1">
+                Topic
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
+                value={speaker.topic}
+                onChange={e => {
+                  const newSpeakers = [...formData.speakers];
+                  newSpeakers[index].topic = e.target.value;
+                  setFormData({ ...formData, speakers: newSpeakers });
+                }}
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-primary-700 mb-1">
+                Organization
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
+                value={speaker.organization}
+                onChange={e => {
+                  const newSpeakers = [...formData.speakers];
+                  newSpeakers[index].organization = e.target.value;
+                  setFormData({ ...formData, speakers: newSpeakers });
+                }}
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-primary-700 mb-1">
+                LinkedIn Profile
+              </label>
+              <input
+                type="url"
+                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500"
+                value={speaker.linkedinProfile}
+                onChange={e => {
+                  const newSpeakers = [...formData.speakers];
+                  newSpeakers[index].linkedinProfile = e.target.value;
+                  setFormData({ ...formData, speakers: newSpeakers });
+                }}
+              />
+            </div>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="px-4 py-2 text-primary-600 border border-primary-600 rounded-lg hover:bg-primary-50"
+          onClick={() => setFormData({
+            ...formData,
+            speakers: [...formData.speakers, { name: '', topic: '', organization: '', linkedinProfile: '' }]
+          })}
+        >
+          Add Speaker
+        </button>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-secondary-50 py-12">
       <div className="max-w-6xl mx-auto px-4">
@@ -355,6 +511,7 @@ const OrganizeEvent = () => {
             {activeTab === 'location' && renderLocationContact()}
             {activeTab === 'social' && renderSocialMedia()}
             {activeTab === 'prizes' && renderPrizesSponsors()}
+            {activeTab === 'judges' && renderJudgesAndSpeakers()}
           </div>
 
           <div className="px-6 py-4 bg-gray-50 border-t border-primary-100 flex justify-between">
