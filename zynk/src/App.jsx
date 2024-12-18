@@ -16,6 +16,7 @@ import Posts from "./Pages/Posts/Posts.jsx";
 import Settings from "./Pages/Profile/Settings.jsx";
 import Hero from './Pages/Home/Hero.jsx';
 import AllEvents from "./Pages/Events/AllEvents.jsx";
+
 function App() {
   return (
     <Router>
@@ -39,6 +40,8 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/events/all" element={<AllEvents />} />
+       
+          
         </Routes>
       </Layout>
     </Router>

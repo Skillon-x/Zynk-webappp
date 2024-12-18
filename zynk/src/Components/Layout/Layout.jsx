@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from "./navbar";
 import Footer from "./Footer";
-
+import Chatbot from "../Common/Chatbot";
 
 function Layout({ children }) {
   return (
@@ -12,6 +12,7 @@ function Layout({ children }) {
         {children}
       </main>
       <Footer />
+      <Chatbot />
     </div>
   );
 }
