@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Mail, ArrowRight } from 'lucide-react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -7,9 +9,56 @@ const Login = () => {
     email: '',
     password: ''
   });
-
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
+    console.log(formData)
     e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+    try {
+      if ( !formData.email || !formData.password) {
+        setError('Please fill in all fields');
+        setLoading(false);
+        return;
+      }
+
+      const response = await axios.post('http://localhost:5000/users/login',{
+        email: formData.email,
+        password: formData.password
+
+      },{
+        headers:{
+          'Content-Type': 'application/json',
+
+        }
+      })
+
+      console.log(response)
+      setSuccess(true);
+      setFormData({
+        fullName: '',
+        email: '',
+        password: ''
+      });
+      if(response.data.success){
+        navigate('/',{
+          state: { 
+            showNotification: true,
+            message: `Welcome back, ${response.data.user.fullName || 'User'}!`,
+            type: 'success'
+          } 
+        })
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'Signup failed. Please try again.');
+      console.error('Signup error:', err);
+    } finally{
+      setLoading(false);
+    }
     // Add your login logic here
   };
 
@@ -33,7 +82,11 @@ const Login = () => {
           <h2 className="text-3xl font-bold text-white mb-2">Welcome Back</h2>
           <p className="text-purple-200">Enter your credentials to access your account</p>
         </div>
-
+        {error && (
+              <div className="bg-red-500/20 text-red-300 p-3 rounded-lg mb-4 text-center">
+                {error}
+              </div>
+        )}
         {/* Login Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email Field */}
