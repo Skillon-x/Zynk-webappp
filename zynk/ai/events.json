@@ -1,0 +1,321 @@
+{
+    "AI Conference 2024": {
+      "description": "Join the AI revolution at this global AI conference with top experts.",
+      "location": "Bengaluru",
+      "domain": "AI",
+      "date": "Jan 10, 2024",
+      "fee": "₹2,000"
+    },
+    "Blockchain Summit 2024": {
+      "description": "Explore the future of finance and technology at the blockchain summit.",
+      "location": "Bengaluru",
+      "domain": "Blockchain",
+      "date": "Jan 15, 2024",
+      "fee": "₹2,500"
+    },
+    "Tech Meetup 2024": {
+      "description": "A meetup for tech enthusiasts to discuss the latest trends in technology.",
+      "location": "Bengaluru",
+      "domain": "Technology",
+      "date": "Jan 20, 2024",
+      "fee": "Free"
+    },
+    "AI Workshop": {
+      "description": "Hands-on workshop to learn AI tools and techniques.",
+      "location": "Chennai",
+      "domain": "AI",
+      "date": "Feb 10, 2024",
+      "fee": "₹1,500"
+    },
+    "Blockchain Workshop": {
+      "description": "Learn how blockchain works with interactive sessions.",
+      "location": "Hyderabad",
+      "domain": "Blockchain",
+      "date": "Dec 5, 2024",
+      "fee": "₹1,000"
+    },
+    "HTMD Conference": {
+      "description": "HTMD Conference is happening on Dec 07, 2024, from 9:00 AM - 5:00 PM at Microsoft reactor-Lavelle Road, Bengaluru. The registration fee is $299 with 1200 attendees expected. Key topics include Technology, Innovation, and AI.",
+      "location": "Bengaluru",
+      "domain": "Technology",
+      "date": "Dec 07, 2024",
+      "fee": "₹20,000"
+    },
+    "Unfold": {
+      "description": "Unfold 24 is Asia's largest hackathon with $100K+ worth bounties and 500+ Web3 developers. It's taking place in Whitefield, Bengaluru at the Marriott Hotel.",
+      "location": "Bengaluru",
+      "domain": "Web3",
+      "date": "Dec 12, 2024",
+      "fee": "₹3,000"
+    },
+    "AI Camp": {
+      "description": "AI Camp is a meetup in Bengaluru focusing on AI, LLMs, ML, and Data. It's a free event with hands-on sessions.",
+      "location": "Bengaluru",
+      "domain": "AI",
+      "date": "Jan 30, 2024",
+      "fee": "Free"
+    },
+    "DevOps Summit": {
+      "description": "DevOps India Summit is scheduled for Dec 15, 2024, from 9:00 AM - 6:00 PM at Marriott Convention Center. Registration fee is $199 with topics covering DevOps, Cloud, and Infrastructure.",
+      "location": "Bengaluru",
+      "domain": "DevOps",
+      "date": "Dec 15, 2024",
+      "fee": "₹2,000"
+    },
+    "Web3 Conference": {
+      "description": "Web3 Conference is happening on Dec 20, 2024, at Sheraton Grand, focusing on Web3, Blockchain, and DeFi. The registration fee is $249.",
+      "location": "Bengaluru",
+      "domain": "Web3",
+      "date": "Dec 20, 2024",
+      "fee": "₹4,000"
+    },
+    "Gen AI": {
+      "description": "Gen AI hackathon is scheduled for Dec 6-8, 2024 at Thomson Reuters with 200 participants. Topics include AI, Machine Learning, and Gen AI.",
+      "location": "Bengaluru",
+      "domain": "AI",
+      "date": "Dec 6-8, 2024",
+      "fee": "₹1,000"
+    },
+    "ETHIndia": {
+      "description": "ETHINDIA is happening at KTPO, Bengaluru from Dec 6-8, 2024 with 800 participants. Prize pool of ₹35,000. Sponsored by Ethereum Foundation, Binance, and Polygon.",
+      "location": "Bengaluru",
+      "domain": "Blockchain",
+      "date": "Dec 6-8, 2024",
+      "fee": "₹3,000"
+    },
+    "Cybersecurity Hackathon": {
+      "description": "CyberSecurity Hackathon is taking place at Pullman, Delhi from Dec 4-6, 2024. Prize pool of ₹4,50,000 with 600 participants. Sponsored by CrowdStrike, FireEye, and Cisco.",
+      "location": "Delhi",
+      "domain": "Cybersecurity",
+      "date": "Dec 4-6, 2024",
+      "fee": "₹2,000"
+    },
+    "Python Bootcamp": {
+      "description": "Python Bootcamp is happening on Jan 15, 2024, from 9:00 AM - 5:00 PM at IIIT Hyderabad. Focused on Python for Beginners, Data Analysis, and Automation. Registration is free.",
+      "location": "Hyderabad",
+      "domain": "Python",
+      "date": "Jan 15, 2024",
+      "fee": "Free"
+    },
+    "IoT Summit 2024": {
+      "description": "IoT Summit 2024 is scheduled for Jan 18, 2024, from 10:00 AM - 6:00 PM at JW Marriott, Pune. Topics include IoT Hardware, Smart Cities, and Cloud Integration. Registration fee: ₹2,500.",
+      "location": "Pune",
+      "domain": "IoT",
+      "date": "Jan 18, 2024",
+      "fee": "₹2,500"
+    },
+    "FinTech Hackathon": {
+      "description": "FinTech Hackathon is happening from Jan 20-22, 2024, at Infosys Campus, Bengaluru. Key tracks include Digital Payments, Blockchain, and DeFi. Prize pool: ₹5,00,000.",
+      "location": "Bengaluru",
+      "domain": "FinTech",
+      "date": "Jan 20-22, 2024",
+      "fee": "₹2,000"
+    },
+    "DevCon India 2024": {
+      "description": "DevCon India 2024 is scheduled for Jan 25-27, 2024, at Sheraton Grand, Bangalore. Topics include Open Source, Cloud Development, and Microservices. Registration fee: ₹3,000.",
+      "location": "Bengaluru",
+      "domain": "DevOps",
+      "date": "Jan 25-27, 2024",
+      "fee": "₹3,000"
+    },
+    "Data Science Meetup": {
+      "description": "Data Science Meetup is happening on Jan 12, 2024, from 11:00 AM - 3:00 PM at TCS Innovation Labs, Mumbai. Focused on Data Engineering, ML Pipelines, and Deep Learning. Registration is free.",
+      "location": "Mumbai",
+      "domain": "Data Science",
+      "date": "Jan 12, 2024",
+      "fee": "Free"
+    },
+    "Mobile App Fest": {
+      "description": "Mobile App Fest is happening on Feb 1, 2024, from 9:00 AM - 7:00 PM at Infosys Pune. Tracks include Flutter, React Native, and Cross-Platform Development. Registration fee: ₹750.",
+      "location": "Pune",
+      "domain": "Mobile Development",
+      "date": "Feb 1, 2024",
+      "fee": "₹750"
+    },
+    "Robotics Expo 2024": {
+      "description": "Robotics Expo 2024 is scheduled for Feb 10, 2024, from 10:00 AM - 6:00 PM at Pragati Maidan, Delhi. Showcasing the latest in Industrial Automation, Drones, and AI Robotics. Entry fee: ₹500.",
+      "location": "Delhi",
+      "domain": "Robotics",
+      "date": "Feb 10, 2024",
+      "fee": "₹500"
+    },
+    "Blockchain Conclave": {
+      "description": "Blockchain Conclave 2024 is happening on Feb 15, 2024, from 9:00 AM - 5:00 PM at The Leela, Bengaluru. Topics include Smart Contracts, DeFi, and NFTs. Registration fee: ₹1,800.",
+      "location": "Bengaluru",
+      "domain": "Blockchain",
+      "date": "Feb 15, 2024",
+      "fee": "₹1,800"
+    },
+    "Web Development Fair": {
+      "description": "Web Development Fair is happening on Feb 20, 2024, from 10:00 AM - 4:00 PM at Christ University, Bangalore. Topics include Full Stack Development, Jamstack, and Web Performance. Registration fee: ₹1,000.",
+      "location": "Bengaluru",
+      "domain": "Web Development",
+      "date": "Feb 20, 2024",
+      "fee": "₹1,000"
+    }
+    ,
+      "Cybersecurity Expo 2024": {
+        "description": "Cybersecurity Expo 2024 will feature the latest trends in threat detection, data protection, and security automation.",
+        "location": "Mumbai",
+        "domain": "Cybersecurity",
+        "date": "Feb 25, 2024",
+        "fee": "₹3,000"
+      },
+      "ML Bootcamp 2024": {
+        "description": "An intensive 3-day Machine Learning Bootcamp focusing on algorithms, real-world data, and implementation.",
+        "location": "Delhi",
+        "domain": "Machine Learning",
+        "date": "Feb 10-12, 2024",
+        "fee": "₹2,000"
+      },
+      "Web3 Development Summit": {
+        "description": "A conference focused on Web3 development, blockchain technology, decentralized applications, and smart contract deployment.",
+        "location": "Hyderabad",
+        "domain": "Web3",
+        "date": "Mar 5-6, 2024",
+        "fee": "₹3,500"
+      },
+      "AI & Robotics Expo": {
+        "description": "AI & Robotics Expo will feature innovative robots, autonomous systems, and AI-driven applications.",
+        "location": "Pune",
+        "domain": "AI/Robotics",
+        "date": "Mar 15-16, 2024",
+        "fee": "₹1,800"
+      },
+      "IoT Connect 2024": {
+        "description": "Join IoT professionals for a 2-day event discussing the future of IoT in smart cities, healthcare, and connected devices.",
+        "location": "Bengaluru",
+        "domain": "IoT",
+        "date": "Mar 20-21, 2024",
+        "fee": "₹2,200"
+      },
+      "TechEd India 2024": {
+        "description": "TechEd India brings together top developers, technologists, and engineers to discuss and showcase new technologies.",
+        "location": "Chennai",
+        "domain": "Technology",
+        "date": "Mar 25-26, 2024",
+        "fee": "₹2,500"
+      },
+      "Cloud Summit 2024": {
+        "description": "A summit focused on cloud computing trends, services, security, and the future of cloud technologies.",
+        "location": "Bengaluru",
+        "domain": "Cloud Computing",
+        "date": "Apr 10, 2024",
+        "fee": "₹2,000"
+      },
+      "IoT Hackathon 2024": {
+        "description": "A 48-hour IoT hackathon to create innovative solutions using the latest IoT technologies and sensors.",
+        "location": "Mumbai",
+        "domain": "IoT",
+        "date": "Apr 15-17, 2024",
+        "fee": "₹1,000"
+      },
+      "Blockchain Developers Conference": {
+        "description": "A conference dedicated to blockchain developers with technical sessions on smart contracts, cryptography, and decentralized applications.",
+        "location": "Delhi",
+        "domain": "Blockchain",
+        "date": "Apr 20-21, 2024",
+        "fee": "₹2,500"
+      },
+      "ML & AI Expo 2024": {
+        "description": "This expo will showcase the latest in machine learning models, AI advancements, and practical implementations across industries.",
+        "location": "Pune",
+        "domain": "AI/ML",
+        "date": "Apr 22-23, 2024",
+        "fee": "₹3,000"
+      },
+      "Robotics Workshop 2024": {
+        "description": "Learn to build and program robots in this hands-on robotics workshop, focusing on automation and autonomous systems.",
+        "location": "Bengaluru",
+        "domain": "Robotics",
+        "date": "May 1, 2024",
+        "fee": "₹1,500"
+      },
+      "Cybersecurity Bootcamp": {
+        "description": "A 5-day immersive bootcamp to learn the essentials of ethical hacking, penetration testing, and security best practices.",
+        "location": "Hyderabad",
+        "domain": "Cybersecurity",
+        "date": "May 5-9, 2024",
+        "fee": "₹4,000"
+      },
+      "Cloud Engineering Summit": {
+        "description": "This summit focuses on cloud engineering, architecture, migration strategies, and the best practices for working with cloud technologies.",
+        "location": "Delhi",
+        "domain": "Cloud Computing",
+        "date": "May 15, 2024",
+        "fee": "₹2,500"
+      },
+      "AI Developer's Meetup": {
+        "description": "AI Developer's Meetup is a gathering for AI developers to exchange ideas, share challenges, and learn about the latest trends in AI development.",
+        "location": "Bengaluru",
+        "domain": "AI",
+        "date": "May 20, 2024",
+        "fee": "₹1,000"
+      },
+      "Ethical Hacking Workshop": {
+        "description": "This workshop will guide participants through ethical hacking tools, techniques, and methodologies for security professionals.",
+        "location": "Pune",
+        "domain": "Cybersecurity",
+        "date": "May 25, 2024",
+        "fee": "₹2,000"
+      },
+      "Web Development Hackathon 2024": {
+        "description": "A 3-day hackathon focused on building web applications using modern front-end and back-end technologies.",
+        "location": "Mumbai",
+        "domain": "Web Development",
+        "date": "Jun 1-3, 2024",
+        "fee": "₹1,500"
+      },
+      "Digital Transformation Summit": {
+        "description": "This summit will discuss how digital transformation is shaping industries with case studies and expert speakers on AI, blockchain, and IoT.",
+        "location": "Delhi",
+        "domain": "Digital Transformation",
+        "date": "Jun 10-12, 2024",
+        "fee": "₹3,500"
+      },
+      "Edge Computing Forum 2024": {
+        "description": "Join the experts as they discuss how edge computing is revolutionizing IoT, AI, and real-time processing in various sectors.",
+        "location": "Hyderabad",
+        "domain": "Edge Computing",
+        "date": "Jun 20-21, 2024",
+        "fee": "₹2,200"
+      },
+      "Game Dev Conference 2024": {
+        "description": "A conference for game developers to learn about game design, engine development, and the latest trends in game tech.",
+        "location": "Bengaluru",
+        "domain": "Game Development",
+        "date": "Jul 5-6, 2024",
+        "fee": "₹3,000"
+      },
+      "AI for Healthcare Summit": {
+        "description": "AI in healthcare is rapidly transforming the industry. Join experts as they discuss AI tools and applications in the medical field.",
+        "location": "Pune",
+        "domain": "AI/Healthcare",
+        "date": "Jul 10, 2024",
+        "fee": "₹3,500"
+      },
+      "DevOps Automation Hackathon": {
+        "description": "A hackathon focused on automating DevOps pipelines and processes to improve productivity and efficiency in software development.",
+        "location": "Bengaluru",
+        "domain": "DevOps",
+        "date": "Jul 15-16, 2024",
+        "fee": "₹2,000"
+      },
+      "Machine Learning Hackathon 2024": {
+        "description": "A 48-hour hackathon to build machine learning models and solutions to solve real-world problems using AI and ML techniques.",
+        "location": "Chennai",
+        "domain": "Machine Learning",
+        "date": "Jul 20-22, 2024",
+        "fee": "₹2,500"
+      },
+      "Tech and Blockchain Conference": {
+        "description": "A conference on the intersection of technology and blockchain with expert talks on the latest advancements in DeFi, NFTs, and smart contracts.",
+        "location": "Delhi",
+        "domain": "Blockchain/Tech",
+        "date": "Aug 10-12, 2024",
+        "fee": "₹3,000"
+      }
+    
+    
+  }
+  

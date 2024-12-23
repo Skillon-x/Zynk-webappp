@@ -5,6 +5,9 @@ const connectDb  =require('./config/db')
 const cors = require('cors');
 const UserRoute = require("./routes/UserRoute")
 const questionRoute = require("./routes/QuestionRoute")
+const contactRoute =require("./routes/contactRoute")
+const organizeRoute =require("./routes/organizeRoutes")
+
 connectDb();
 app.use(cors({
     origin:['http://localhost:5173','https://calm-pie-dc83cf.netlify.app'],
@@ -15,7 +18,10 @@ app.use(cors({
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true }));
 app.use('/users',UserRoute);
-app.use('/api',questionRoute)
+app.use('/api',questionRoute);
+app.use('/contact',contactRoute);
+app.use('/organize',organizeRoute)
+
 const PORT = 5000;
 
 app.listen(PORT,()=>{

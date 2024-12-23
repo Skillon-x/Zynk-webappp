@@ -18,13 +18,29 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch('http://localhost:5000/contact/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
       setStatus({
         type: 'success',
-        message: 'Thank you for your message! We\'ll get back to you soon.'
+        message: data.message
       });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Failed to submit form. Please try again.'
+      });
+    } finally {
       setLoading(false);
-    }, 1500);
+    }
   };
 
   const handleChange = (e) => {

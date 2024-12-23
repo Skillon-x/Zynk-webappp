@@ -1,6 +1,29 @@
 import React, { useState } from 'react';
 import { Code, Globe, Users, Calendar, Trophy, Link, Award } from 'lucide-react';
 
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setFormData((prev) => ({ ...prev, [name]: value }));
+};
+const handleSubmit = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/api/organize/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+    if (response.ok) {
+      alert('Event created successfully!');
+    } else {
+      alert(`Error: ${result.message}`);
+    }
+  } catch (error) {
+    console.error('Error creating event:', error);
+  }
+};
+
 const OrganizeEvent = () => {
   const tabs = [
     { id: 'basic', label: 'Basic Info', icon: Code },
