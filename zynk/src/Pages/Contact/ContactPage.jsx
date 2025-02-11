@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Clock, Globe, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { 
+  Mail, Phone, MapPin, Send, Clock, Globe, 
+  Linkedin, Twitter, Facebook, MessageCircle,
+  Building2, Users, Award
+} from 'lucide-react';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -52,27 +56,36 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-secondary-100 to-secondary py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-primary-700 mb-4">Get in Touch</h1>
-          <p className="text-xl text-tertiary-700 max-w-3xl mx-auto mb-8">
-            Have questions about Zynk? We're here to help you discover, connect, and grow through innovative tech events.
-            Our dedicated team is ready to assist you with any inquiries.
-          </p>
-          <div className="flex justify-center space-x-4">
-            {['linkedin', 'twitter', 'facebook'].map((social) => (
-              <button
-                key={social}
-                className="px-4 py-2 border border-primary-200 rounded-md flex items-center gap-2 hover:bg-primary-50 transition-colors text-primary-700"
-              >
-                {social === 'linkedin' && <Linkedin className="h-5 w-5" />}
-                {social === 'twitter' && <Twitter className="h-5 w-5" />}
-                {social === 'facebook' && <Facebook className="h-5 w-5" />}
-                {social.charAt(0).toUpperCase() + social.slice(1)}
-              </button>
-            ))}
+        {/* Header Section with Animated Background */}
+        <div className="relative text-center mb-16 p-8 rounded-2xl bg-purple-800/30 backdrop-blur-sm border border-purple-700">
+          <div className="absolute inset-0 overflow-hidden rounded-2xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 transform rotate-12"></div>
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-purple-500/30 rounded-full filter blur-3xl animate-pulse"></div>
+            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-pink-500/30 rounded-full filter blur-3xl animate-pulse"></div>
+          </div>
+          
+          <div className="relative">
+            <h1 className="text-5xl font-bold text-white mb-4">Get in Touch</h1>
+            <p className="text-xl text-purple-100 max-w-3xl mx-auto mb-8">
+              Have questions about Zynk? We're here to help you discover, connect, and grow through innovative tech events.
+            </p>
+            
+            {/* Stats Section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-12">
+              {[
+                { icon: Users, label: 'Active Users', value: '50K+' },
+                { icon: Building2, label: 'Global Partners', value: '100+' },
+                { icon: Award, label: 'Event Success Rate', value: '99%' }
+              ].map((stat, index) => (
+                <div key={index} className="bg-purple-800/50 p-4 rounded-xl border border-purple-600/50 backdrop-blur-sm">
+                  <stat.icon className="h-8 w-8 text-purple-300 mx-auto mb-2" />
+                  <h4 className="text-2xl font-bold text-white">{stat.value}</h4>
+                  <p className="text-purple-200">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -81,36 +94,45 @@ const ContactPage = () => {
           <div className="space-y-6">
             {[
               {
-                icon: <Mail className="h-6 w-6 text-primary-700" />,
+                icon: <Mail className="h-6 w-6 text-purple-300" />,
                 title: 'Email Us',
-                lines: ['support@zynk.com', 'partnerships@zynk.com']
+                lines: ['support@zynk.com', 'partnerships@zynk.com'],
+                gradient: 'from-purple-500 to-pink-500'
               },
               {
-                icon: <Phone className="h-6 w-6 text-primary-700" />,
+                icon: <Phone className="h-6 w-6 text-blue-300" />,
                 title: 'Call Us',
-                lines: ['Main: +1 (555) 123-4567', 'Support: +1 (555) 987-6543']
+                lines: ['Main: +1 (555) 123-4567', 'Support: +1 (555) 987-6543'],
+                gradient: 'from-blue-500 to-purple-500'
               },
               {
-                icon: <MapPin className="h-6 w-6 text-primary-700" />,
+                icon: <MapPin className="h-6 w-6 text-pink-300" />,
                 title: 'Visit Us',
-                lines: ['123 Tech Hub Street', 'Innovation City, IC 12345']
+                lines: ['123 Tech Hub Street', 'Innovation City, IC 12345'],
+                gradient: 'from-pink-500 to-purple-500'
               },
               {
-                icon: <Clock className="h-6 w-6 text-primary-700" />,
+                icon: <Clock className="h-6 w-6 text-indigo-300" />,
                 title: 'Business Hours',
-                lines: ['Monday - Friday: 9AM - 6PM', 'Weekend: 10AM - 4PM']
+                lines: ['Monday - Friday: 9AM - 6PM', 'Weekend: 10AM - 4PM'],
+                gradient: 'from-indigo-500 to-purple-500'
               }
             ].map((item, index) => (
-              <div key={index} className="bg-secondary rounded-lg shadow-md p-6 transform transition-all hover:scale-105">
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-primary-100 rounded-full">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg text-primary-700">{item.title}</h3>
-                    {item.lines.map((line, i) => (
-                      <p key={i} className="text-tertiary-700">{line}</p>
-                    ))}
+              <div 
+                key={index} 
+                className={`bg-gradient-to-r ${item.gradient} p-1 rounded-lg transform transition-all hover:scale-105`}
+              >
+                <div className="bg-purple-900 p-5 rounded-lg">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-purple-800/50 rounded-full">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-white">{item.title}</h3>
+                      {item.lines.map((line, i) => (
+                        <p key={i} className="text-purple-200">{line}</p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -118,14 +140,20 @@ const ContactPage = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2 bg-secondary rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-bold text-primary-700 mb-2">Send us a Message</h2>
-            <p className="text-tertiary-700 mb-6">Fill out the form below and we'll get back to you as soon as possible.</p>
+          <div className="lg:col-span-2 bg-purple-800/30 backdrop-blur-sm rounded-lg border border-purple-700 p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <MessageCircle className="h-8 w-8 text-purple-300" />
+              <div>
+                <h2 className="text-2xl font-bold text-white">Send us a Message</h2>
+                <p className="text-purple-200">We'll get back to you as soon as possible.</p>
+              </div>
+            </div>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Form fields remain the same, just updated styling */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-primary-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-purple-200 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -133,14 +161,14 @@ const ContactPage = () => {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-2 border border-primary-200 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-purple-900/50 border border-purple-600 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-purple-400"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-primary-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-purple-200 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -148,7 +176,7 @@ const ContactPage = () => {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-2 border border-primary-200 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-purple-900/50 border border-purple-600 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-purple-400"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
@@ -158,28 +186,28 @@ const ContactPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-primary-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-purple-200 mb-2">
                     Phone Number
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
-                    className="w-full px-4 py-2 border border-primary-200 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-purple-900/50 border border-purple-600 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-purple-400"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+1 (555) 000-0000"
                   />
                 </div>
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-primary-700 mb-2">
+                  <label htmlFor="company" className="block text-sm font-medium text-purple-200 mb-2">
                     Company/Organization
                   </label>
                   <input
                     type="text"
                     id="company"
                     name="company"
-                    className="w-full px-4 py-2 border border-primary-200 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-purple-900/50 border border-purple-600 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-purple-400"
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Your Company Name"
@@ -188,14 +216,14 @@ const ContactPage = () => {
               </div>
 
               <div>
-                <label htmlFor="inquiryType" className="block text-sm font-medium text-primary-700 mb-2">
+                <label htmlFor="inquiryType" className="block text-sm font-medium text-purple-200 mb-2">
                   Type of Inquiry *
                 </label>
                 <select
                   id="inquiryType"
                   name="inquiryType"
                   required
-                  className="w-full px-4 py-2 border border-primary-200 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full px-4 py-2 bg-purple-900/50 border border-purple-600 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-purple-400"
                   value={formData.inquiryType}
                   onChange={handleChange}
                 >
@@ -209,7 +237,7 @@ const ContactPage = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-primary-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-purple-200 mb-2">
                   Message *
                 </label>
                 <textarea
@@ -217,7 +245,7 @@ const ContactPage = () => {
                   name="message"
                   rows={6}
                   required
-                  className="w-full px-4 py-2 border border-primary-200 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full px-4 py-2 bg-purple-900/50 border border-purple-600 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-purple-400"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Please provide detailed information about your inquiry..."
@@ -225,7 +253,11 @@ const ContactPage = () => {
               </div>
 
               {status.message && (
-                <div className={`p-4 rounded-md ${status.type === 'success' ? 'bg-primary-100 text-primary-700' : 'bg-red-50 text-red-800'}`}>
+                <div className={`p-4 rounded-md ${
+                  status.type === 'success' 
+                    ? 'bg-green-900/50 text-green-200 border border-green-500' 
+                    : 'bg-red-900/50 text-red-200 border border-red-500'
+                }`}>
                   {status.message}
                 </div>
               )}
@@ -233,16 +265,16 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-primary-700 hover:bg-primary-800 text-secondary font-medium py-2 px-4 rounded-md transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-3 px-4 rounded-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {loading ? (
                   <span className="flex items-center justify-center">
-                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-secondary mr-2"></div>
+                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-2"></div>
                     Sending...
                   </span>
                 ) : (
                   <>
-                    <Send className="h-4 w-4" />
+                    <Send className="h-5 w-5" />
                     Send Message
                   </>
                 )}
@@ -251,13 +283,30 @@ const ContactPage = () => {
           </div>
         </div>
 
+        {/* Social Links */}
+        <div className="flex justify-center gap-4 mb-16">
+          {[
+            { icon: Linkedin, label: 'LinkedIn', color: 'from-blue-500 to-blue-600' },
+            { icon: Twitter, label: 'Twitter', color: 'from-purple-500 to-pink-500' },
+            { icon: Facebook, label: 'Facebook', color: 'from-indigo-500 to-blue-500' }
+          ].map((social, index) => (
+            <button
+              key={index}
+              className={`px-6 py-3 bg-gradient-to-r ${social.color} rounded-lg flex items-center gap-2 hover:scale-105 transition-transform`}
+            >
+              <social.icon className="h-5 w-5 text-white" />
+              <span className="text-white">{social.label}</span>
+            </button>
+          ))}
+        </div>
+
         {/* Global Reach Section */}
-        <div className="mt-16 text-center">
+        <div className="text-center bg-purple-800/30 backdrop-blur-sm rounded-lg border border-purple-700 p-8">
           <div className="inline-flex items-center space-x-2 mb-4">
-            <Globe className="h-6 w-6 text-primary-700" />
-            <h2 className="text-2xl font-bold text-primary-700">Global Reach</h2>
+            <Globe className="h-8 w-8 text-purple-300" />
+            <h2 className="text-2xl font-bold text-white">Global Reach</h2>
           </div>
-          <p className="text-tertiary-700 max-w-2xl mx-auto">
+          <p className="text-purple-200 max-w-2xl mx-auto">
             With offices and partners worldwide, Zynk is committed to supporting tech communities across the globe.
             Our platform connects event organizers and attendees from over 50 countries.
           </p>

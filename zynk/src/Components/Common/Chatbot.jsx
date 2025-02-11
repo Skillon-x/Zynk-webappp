@@ -7,116 +7,49 @@ const Chatbot = () => {
   const [inputMessage, setInputMessage] = useState('');
   const [unknownQuestions, setUnknownQuestions] = useState([]);
   const messagesEndRef = useRef(null);
-  const [responses, setResponses] = useState({
-    "hello": "Hello! How can I assist you with events today?",
-    "hi": "Hi there! Looking for events or hackathons?",
-    "help": "I can help you with:\n- Finding events\n- Hackathon information\n- Registration process\n- Event categories\n\nWhat would you like to know?",
-    "htmd conference": "HTMD Conference is happening on Dec 07, 2024, from 9:00 AM - 5:00 PM at Microsoft reactor-Lavelle Road, Bengaluru. The registration fee is $299 with 1200 attendees expected. Key topics include Technology, Innovation, and AI.",
-    "unfold": "Unfold 24 is Asia's largest hackathon with $100K+ worth bounties and 500+ Web3 developers. It's taking place in Whitefield, Bengaluru at the Marriott Hotel.",
-    "ai camp": "AI Camp is a meetup in Bengaluru focusing on AI, LLMs, ML, and Data. It's a free event with hands-on sessions.",
-    "devops summit": "DevOps India Summit is scheduled for Dec 15, 2024, from 9:00 AM - 6:00 PM at Marriott Convention Center. Registration fee is $199 with topics covering DevOps, Cloud, and Infrastructure.",
-    "web3 conference": "Web3 Conference is happening on Dec 20, 2024, at Sheraton Grand, focusing on Web3, Blockchain, and DeFi. The registration fee is $249.",
-    "gen ai": "Gen AI hackathon is scheduled for Dec 6-8, 2024 at Thomson Reuters with 200 participants. Topics include AI, Machine Learning, and Gen AI.",
-    "ethindia": "ETHINDIA is happening at KTPO, Bengaluru from Dec 6-8, 2024 with 800 participants. Prize pool of ₹35,000. Sponsored by Ethereum Foundation, Binance, and Polygon.",
-    "cybersecurity hackathon": "CyberSecurity Hackathon is taking place at Pullman, Delhi from Dec 4-6, 2024. Prize pool of ₹4,50,000 with 600 participants. Sponsored by CrowdStrike, FireEye, and Cisco.",
-    "ai events": "We have 86 AI & Machine Learning events covering Deep Learning, NLP, Computer Vision, and MLOps.",
-    "cybersecurity events": "There are 64 Cybersecurity events including security conferences, CTFs, and ethical hacking competitions. Topics cover Network Security, Cloud Security, and Ethical Hacking.",
-    "blockchain events": "We have 52 Blockchain & Web3 events focusing on Cryptocurrency, DeFi, and blockchain development. Topics include Smart Contracts, Crypto, and NFTs.",
-    "cloud events": "73 Cloud Computing events covering AWS, Azure, GCP, and DevOps topics.",
-    "full stack": "95 Full Stack Development events including web development, mobile, and cross-platform hackathons.",
-    "iot events": "41 IoT & Hardware events covering Embedded Systems, Robotics, Smart Devices, and Arduino.",
-    "upcoming events": "We have several exciting events coming up!\n\nFeatured Events:\n- HTMD Conference (Dec 7)\n- DevOps India Summit (Dec 15)\n- Web3 Conference (Dec 20)\n\nHackathons:\n- Gen AI Hackathon (Dec 6-8)\n- ETHINDIA (Dec 6-8)\n- CyberSecurity Hackathon (Dec 4-6)\n\nWhich type of event interests you?",
-    "hackathons": "Current featured hackathons:\n- Gen AI Hackathon (Dec 6-8)\n- ETHINDIA (Dec 6-8, Prize: ₹35,000)\n- CyberSecurity Hackathon (Dec 4-6, Prize: ₹4,50,000)\n\nWould you like details about any specific hackathon?",
-    "organize hackathon": "To organize a hackathon, you'll need to provide:\n- Basic Info (Name, Description)\n- Team & Domain details\n- Timeline\n- Location & Contact\n- Social Media presence\n- Prizes & Sponsors\n- Judges & Speakers\n\nWould you like to start organizing one?",
-    "categories": "We offer events in these categories:\n- AI & Machine Learning (86 events)\n- Cybersecurity (64 events)\n- Blockchain & Web3 (52 events)\n- Cloud Computing (73 events)\n- Full Stack Development (95 events)\n- IoT & Hardware (41 events)\n\nWhich category interests you?",
-    "default": "I'm not sure about that. Would you like to:\n- Browse upcoming events\n- Find hackathons\n- View event categories\n- Get registration help",
-    "ctf": "Upcoming CTF event happening Dec 8-10, 2025. It's an offline event with 50 participants. Prize pool: ₹50000. Features: Capture the flag, Hack challenges, Network security.",
-    "full stack dev": "Multiple Full Stack Development events available:\n- Web Development Bootcamp (Online, 50 participants)\n- React Dev Workshop (Online)\nPrize pools ranging from ₹1000-5000\nSponsored by Ethereum Foundation, Binance, Polygon, Godaddy",
-    "gen ai": "Gen AI hackathon is scheduled for Dec 6-8, 2024 at Thomson Reuters with 200 participants. Prize pool TBA. Topics include AI, Machine Learning, and Gen AI.",
+  const [responses, setResponses] = useState(
+    {
+      "hello": "Hello! How can I assist you with events today?",
+      "hi": "Hi there! Looking for events or hackathons?",
+      "help": "I can help you with:\n- Finding events\n- Hackathon information\n- Registration process\n- Event categories\n\nWhat would you like to know?",
+      "htmd conference": "HTMD Conference is happening on Dec 07, 2024, from 9:00 AM - 5:00 PM at Microsoft reactor-Lavelle Road, Bengaluru. The registration fee is $299 with 1200 attendees expected. Key topics include Technology, Innovation, and AI.",
+      "unfold": "Unfold 24 is Asia's largest hackathon with $100K+ worth bounties and 500+ Web3 developers. It's taking place in Whitefield, Bengaluru at the Marriott Hotel.",
+      "ai camp": "AI Camp is happening on Dec 07, 2024 from 10:00 AM - 1:00 PM at Yuvapatha, Bangalore. It's a free workshop focusing on AI, LLMs, ML, and Data with hands-on sessions. Currently 300 people attending. Topics: AI, ML, Hands-on.",
+      "devops summit": "DevOps India Summit is scheduled for Dec 15, 2024, from 9:00 AM - 6:00 PM at Marriott Convention Center. Registration fee is $199 with topics covering DevOps, Cloud, and Infrastructure.",
+      "web3 conference": "Web3 Conference is happening on Dec 20, 2024, at Sheraton Grand, focusing on Web3, Blockchain, and DeFi. The registration fee is $249.",
+      "gen ai": "Gen AI hackathon is scheduled for Dec 6-8, 2024 at Thomson Reuters with 200 participants. Topics include AI, Machine Learning, and Gen AI.",
+      "ethindia": "ETHINDIA is happening at KTPO, Bengaluru from Dec 6-8, 2024 with 800 participants. Prize pool of ₹35,000. Sponsored by Ethereum Foundation, Binance, and Polygon.",
+      "cybersecurity hackathon": "CyberSecurity Hackathon is taking place at Pullman, Delhi from Dec 4-6, 2024. Prize pool of ₹4,50,000 with 600 participants. Sponsored by CrowdStrike, FireEye, and Cisco.",
+      "ai events": "We have 86 AI & Machine Learning events covering Deep Learning, NLP, Computer Vision, and MLOps.",
+      "cybersecurity events": "There are 64 Cybersecurity events including security conferences, CTFs, and ethical hacking competitions. Topics cover Network Security, Cloud Security, and Ethical Hacking.",
+      "blockchain events": "We have 52 Blockchain & Web3 events focusing on Cryptocurrency, DeFi, and blockchain development. Topics include Smart Contracts, Crypto, and NFTs.",
+      "cloud events": "73 Cloud Computing events covering AWS, Azure, GCP, and DevOps topics.",
+      "full stack": "95 Full Stack Development events including web development, mobile, and cross-platform hackathons.",
+      "iot events": "41 IoT & Hardware events covering Embedded Systems, Robotics, Smart Devices, and Arduino.",
+      "upcoming events": "We have several exciting events coming up!\n\nFeatured Events:\n- HTMD Conference (Dec 7)\n- DevOps India Summit (Dec 15)\n- Web3 Conference (Dec 20)\n\nHackathons:\n- Gen AI Hackathon (Dec 6-8)\n- ETHINDIA (Dec 6-8)\n- CyberSecurity Hackathon (Dec 4-6)\n\nWhich type of event interests you?",
+      "hackathons": "Current featured hackathons:\n- Gen AI Hackathon (Dec 6-8)\n- ETHINDIA (Dec 6-8, Prize: ₹35,000)\n- CyberSecurity Hackathon (Dec 4-6, Prize: ₹4,50,000)\n\nWould you like details about any specific hackathon?",
+      "organize hackathon": "To organize a hackathon, you'll need to provide:\n- Basic Info (Name, Description)\n- Team & Domain details\n- Timeline\n- Location & Contact\n- Social Media presence\n- Prizes & Sponsors\n- Judges & Speakers\n\nWould you like to start organizing one?",
+      "categories": "We offer events in these categories:\n- AI & Machine Learning (86 events)\n- Cybersecurity (64 events)\n- Blockchain & Web3 (52 events)\n- Cloud Computing (73 events)\n- Full Stack Development (95 events)\n- IoT & Hardware (41 events)\n\nWhich category interests you?",
+      "default": "I'm not sure about that. Would you like to:\n- Browse upcoming events\n- Find hackathons\n- View event categories\n- Get registration help",
+      "ctf": "Upcoming CTF event happening Dec 8-10, 2025. It's an offline event with 50 participants. Prize pool: ₹50000. Features: Capture the flag, Hack challenges, Network security.",
+      "full stack dev": "Multiple Full Stack Development events available:\n- Web Development Bootcamp (Online, 50 participants)\n- React Dev Workshop (Online)\nPrize pools ranging from ₹1000-5000\nSponsored by Ethereum Foundation, Binance, Polygon, Godaddy",
+      "genai mixer": "GenAI Mixer is happening on Dec 14, 2025 at Elastic technologies pvt ltd with 200 participants. Prize pool ₹35,000. Sponsored by Ethereum Foundation, Binance, and Polygon.",
+      "defy25": "Defy25 is an online Web3 hackathon scheduled for Dec 8-10, 2025 with 800 participants. Prize pool of $550. Sponsored by Ethereum Foundation, Binance, and Polygon. Features DeFi and Blockchain tracks.",
+      "platform stats": "Zynk platform currently has:\n- 10K+ Events\n- 50K+ Users\n- 100+ Cities\nJoin events that match your interests and connect with professionals who share your passion.",
+      "quantum computing": "Recent Quantum Computing workshop at #TechCon2024 was a great success with amazing turnout and engaging questions from participants. The workshop covered quantum technology fundamentals and applications.",
+      "product design jam": "Product Design Jam is scheduled for Sep 30, 2024, from 9:00 AM - 4:00 PM at UX Studio, Pune. Focused on Design Thinking, Prototyping, and UI/UX. Registration fee: ₹1,500.",
+      "ai & robotics summit": "AI & Robotics Summit 2025 is scheduled for Feb 10, 2025, from 10:00 AM - 6:00 PM at Robotics Park, Chennai. Topics include AI in Automation, Autonomous Robots, and Human-Robot Interaction. Registration fee: ₹2,500.",
+      "cloud computing expo": "Cloud Computing Expo 2025 is happening on Feb 15, 2025, from 9:30 AM - 5:00 PM at CloudTech Center, Bengaluru. Topics include Cloud Security, SaaS Solutions, and DevOps in the Cloud. Registration fee: ₹3,000.",
+      "digital marketing conference": "Digital Marketing Conference 2025 is scheduled for Feb 20, 2025, from 9:00 AM - 4:30 PM at Marketing Hub, Mumbai. Topics include SEO, Content Strategy, and Data-Driven Marketing. Registration fee: ₹1,800.",
+      "quantum cryptography workshop": "Quantum Cryptography Workshop is happening on Feb 25, 2025, from 10:00 AM - 5:00 PM at Quantum Security Lab, Delhi. Topics include Quantum Key Distribution, Quantum Safe Encryption, and Post-Quantum Cryptography. Registration fee: ₹3,500.",
+      "vr & ar summit": "VR & AR Summit 2025 is scheduled for Mar 1-3, 2025, at Immersive Experience Center, Pune. Topics include Virtual Reality for Education, Augmented Reality in Retail, and Future of Immersive Technologies. Registration fee: ₹4,000.",
+      "cybersecurity excellence awards": "Cybersecurity Excellence Awards 2025 will be held on Mar 10, 2025, from 7:00 PM - 9:00 PM at CyberSecure Convention Center, Delhi. The event will recognize the most innovative cybersecurity solutions. Entry fee: ₹500.",
+      "data science bootcamp": "Data Science Bootcamp is scheduled for Mar 15, 2025, from 9:30 AM - 5:00 PM at Data Lab, Bengaluru. Tracks include Data Wrangling, Predictive Modeling, and Deep Learning. Registration fee: ₹2,000.",
+      "blockchain and fintech conference": "Blockchain & FinTech Conference 2025 is happening on Mar 20, 2025, from 10:00 AM - 6:00 PM at FinTech Hub, Mumbai. Topics include Decentralized Finance, Smart Contracts, and Blockchain for Payments. Registration fee: ₹3,000.",
+      "next-gen tech summit": "Next-Gen Tech Summit 2025 is scheduled for Mar 25, 2025, from 9:00 AM - 5:00 PM at FutureTech Arena, Bengaluru. Topics include AI, Blockchain, and IoT Innovations. Registration fee: ₹2,500.",
+      "clean tech innovation day": "Clean Tech Innovation Day is happening on Apr 1, 2025, from 9:30 AM - 4:00 PM at GreenTech Park, Delhi. Topics include Renewable Energy, Sustainable Technologies, and Climate Solutions. Registration fee: ₹1,500.",
     
-    "genai mixer": "GenAI Mixer is happening on Dec 14, 2025 at Elastic technologies pvt ltd with 200 participants. Prize pool ₹35,000. Sponsored by Ethereum Foundation, Binance, and Polygon.",
     
-    "ethindia": "ETHINDIA is happening at KTPO, Bengaluru from Dec 6-8, 2024 with 800 participants. Prize pool of ₹35,000. Sponsored by Ethereum Foundation, Binance, and Polygon.",
-    
-    "defy25": "Defy25 is an online Web3 hackathon scheduled for Dec 8-10, 2025 with 800 participants. Prize pool of $550. Sponsored by Ethereum Foundation, Binance, and Polygon. Features DeFi and Blockchain tracks.",
-    
-    "cybersecurity hackathon": "CyberSecurity Hackathon is taking place at Pullman, Delhi from Dec 4-6, 2024. Prize pool of ₹4,50,000 with 600 participants. Sponsored by CrowdStrike, FireEye, and Cisco. Features Security, CTF, and Network tracks.",
-    
-    "ctf": "CTF event happening Dec 8-10, 2025. It's an offline event with 50 participants. Prize pool: ₹50,000. Features: Capture the flag, Hack challenges.",
-    
-    "full stack dev": "Multiple Full Stack Development events available:\n- Web Development Workshop (Online, 50 participants, Prize: ₹5000)\n- Full Stack Bootcamp (Online, 50 participants, Prize: ₹1000)\n- React Dev Workshop (Online, 50 participants, Prize: ₹2000)\nSponsored by various organizations including Ethereum Foundation, Binance, Polygon, and Godaddy.",
-    
-    "upcoming events": "We have several exciting events coming up!\n\nAI & ML Events:\n- Gen AI Hackathon (Dec 6-8, 2024)\n- GenAI Mixer (Dec 14, 2025)\n\nBlockchain Events:\n- ETHINDIA (Dec 6-8, 2024)\n- Defy25 (Dec 8-10, 2025)\n\nCybersecurity Events:\n- CyberSecurity Hackathon (Dec 4-6, 2024)\n- CTF Event (Dec 8-10, 2025)\n\nDevelopment Events:\n- Multiple Full Stack Development workshops\n\nWhich type of event interests you?",  
-    "smart event discovery": `
-      Discover events your way with these features:
-      - Location-based recommendations
-      - Category and interest filtering
-      - AI-powered event matching
-      - Price and date filtering
-      - Keyword and tag search
-    `,
-    "event management": `
-      Simplify event participation with these features:
-      - Easy registration process
-      - Automated reminders
-      - Digital tickets
-      - Event schedule planning
-      - Personalized calendar
-    `,
-    "social sharing": `
-      Enhance your networking with:
-      - Event experience posts
-      - Photo and video sharing
-      - Achievement showcases
-      - Network building
-      - Professional portfolio
-    `,
-    "hackathon central": `
-      Join exciting hackathons in categories like:
-      - AI/ML, Web3, Mobile, IoT, FinTech, Healthcare, and Sustainability.
-      Formats include in-person, virtual, and hybrid.
-      Rewards include cash prizes, industry recognition, and mentorship access.
-    `,
-    "ai camp": "AI Camp is happening on Dec 07, 2024 from 10:00 AM - 1:00 PM at Yuvapatha, Bangalore. It's a free workshop focusing on AI, LLMs, ML, and Data with hands-on sessions. Currently 300 people attending. Topics: AI, ML, Hands-on.",
-    "blockchain workshop": "Blockchain Workshop is scheduled for Dec 10, 2024 from 2:00 PM - 6:00 PM at Tech Hub. Registration fee is $49 with 150 attendees expected. Topics include Blockchain, Web3, and DApps.",
-    "devops masterclass": "DevOps Masterclass will be held on Dec 12, 2024 from 10:00 AM - 4:00 PM at Tech Center. The fee is $79 with 200 attendees expected. Topics cover DevOps, Docker, and Kubernetes.",
-    "organize hackathon": `To organize a hackathon, you'll need to provide:
-1. Basic Info: Name, Description, Theme (AI, Fintech, Healthcare, etc.)
-2. Team & Domain details
-3. Timeline
-4. Location & Contact information
-5. Social Media presence
-6. Prizes & Sponsors
-7. Judges & Speakers
-8. Expected Participants
-9. Participation Fee,
-
-Would you like to start organizing one?`,
-    "platform stats": "Zynk platform currently has:\n- 10K+ Events\n- 50K+ Users\n- 100+ Cities\nJoin events that match your interests and connect with professionals who share your passion.",
-    "quantum computing": "Recent Quantum Computing workshop at #TechCon2024 was a great success with amazing turnout and engaging questions from participants. The workshop covered quantum technology fundamentals and applications.",
-
-    "product design jam": "Product Design Jam is scheduled for Sep 30, 2024, from 9:00 AM - 4:00 PM at UX Studio, Pune. Focused on Design Thinking, Prototyping, and UI/UX. Registration fee: ₹1,500.",
-    "ai & robotics summit": "AI & Robotics Summit 2025 is scheduled for Feb 10, 2025, from 10:00 AM - 6:00 PM at Robotics Park, Chennai. Topics include AI in Automation, Autonomous Robots, and Human-Robot Interaction. Registration fee: ₹2,500.",
-    "cloud computing expo": "Cloud Computing Expo 2025 is happening on Feb 15, 2025, from 9:30 AM - 5:00 PM at CloudTech Center, Bengaluru. Topics include Cloud Security, SaaS Solutions, and DevOps in the Cloud. Registration fee: ₹3,000.",
-    "digital marketing conference": "Digital Marketing Conference 2025 is scheduled for Feb 20, 2025, from 9:00 AM - 4:30 PM at Marketing Hub, Mumbai. Topics include SEO, Content Strategy, and Data-Driven Marketing. Registration fee: ₹1,800.",
-    "quantum cryptography workshop": "Quantum Cryptography Workshop is happening on Feb 25, 2025, from 10:00 AM - 5:00 PM at Quantum Security Lab, Delhi. Topics include Quantum Key Distribution, Quantum Safe Encryption, and Post-Quantum Cryptography. Registration fee: ₹3,500.",
-    "vr & ar summit": "VR & AR Summit 2025 is scheduled for Mar 1-3, 2025, at Immersive Experience Center, Pune. Topics include Virtual Reality for Education, Augmented Reality in Retail, and Future of Immersive Technologies. Registration fee: ₹4,000.",
-    "cybersecurity excellence awards": "Cybersecurity Excellence Awards 2025 will be held on Mar 10, 2025, from 7:00 PM - 9:00 PM at CyberSecure Convention Center, Delhi. The event will recognize the most innovative cybersecurity solutions. Entry fee: ₹500.",
-    "data science bootcamp": "Data Science Bootcamp is scheduled for Mar 15, 2025, from 9:30 AM - 5:00 PM at Data Lab, Bengaluru. Tracks include Data Wrangling, Predictive Modeling, and Deep Learning. Registration fee: ₹2,000.",
-    "blockchain and fintech conference": "Blockchain & FinTech Conference 2025 is happening on Mar 20, 2025, from 10:00 AM - 6:00 PM at FinTech Hub, Mumbai. Topics include Decentralized Finance, Smart Contracts, and Blockchain for Payments. Registration fee: ₹3,000.",
-    "next-gen tech summit": "Next-Gen Tech Summit 2025 is scheduled for Mar 25, 2025, from 9:00 AM - 5:00 PM at FutureTech Arena, Bengaluru. Topics include AI, Blockchain, and IoT Innovations. Registration fee: ₹2,500.",
-    "clean tech innovation day": "Clean Tech Innovation Day is happening on Apr 1, 2025, from 9:30 AM - 4:30 PM at CleanTech Center, Delhi. Topics include Sustainable Energy, Smart Grids, and Electric Vehicles. Registration fee: ₹2,000.",
-    "3d printing expo": "3D Printing Expo 2025 is scheduled for Apr 5, 2025, from 10:00 AM - 5:00 PM at 3D Innovation Hub, Pune. Tracks include Prototyping, Additive Manufacturing, and Future of 3D Printing. Registration fee: ₹1,500.",
-    "big data summit": "Big Data Summit 2025 is happening on Apr 10, 2025, from 9:00 AM - 6:00 PM at Data Summit Center, Bengaluru. Topics include Data Analytics, Hadoop, and Big Data Architecture. Registration fee: ₹3,000.",
-    "wearable tech conference": "Wearable Tech Conference 2025 is scheduled for Apr 15, 2025, from 10:00 AM - 5:00 PM at TechWear Center, Chennai. Topics include Fitness Wearables, Smartwatches, and Wearable Health Monitoring. Registration fee: ₹2,200.",
-    "devops india conference": "DevOps India Conference 2025 is happening on Apr 20, 2025, from 9:30 AM - 5:30 PM at DevOps Hub, Bengaluru. Topics include CI/CD Pipelines, Automation, and DevSecOps. Registration fee: ₹3,000.",
-    "edge computing summit": "Edge Computing Summit 2025 is happening on May 5, 2025, from 9:30 AM - 6:00 PM at EdgeTech Lab, Pune. Topics include Edge AI, IoT, and Low Latency Networks. Registration fee: ₹3,200.",
-    "healthcare tech forum": "Healthcare Tech Forum 2025 is scheduled for May 10, 2025, from 10:00 AM - 5:00 PM at MedTech Center, Delhi. Topics include Telemedicine, Robotics in Surgery, and AI for Healthcare. Registration fee: ₹2,500.",
-    "internet of medical things summit": "Internet of Medical Things Summit 2025 is happening on May 15, 2025, from 9:30 AM - 6:00 PM at MedIoT Center, Bengaluru. Topics include IoMT Devices, Smart Hospitals, and Remote Monitoring. Registration fee: ₹3,000.",
-    "agritech summit": "AgriTech Summit 2025 is scheduled for May 20, 2025, from 9:00 AM - 5:00 PM at AgriTech Hub, Hyderabad. Topics include Smart Farming, Drones in Agriculture, and AI in Crop Management. Registration fee: ₹2,500.",
-    "prize details":"Check the event page",
-
-   //social media
     "event highlights": "Check out our community's latest tech events and hackathons! Popular hashtags:\n#Hackathons #TechTalks #Workshops #Innovation #AI #WebDev #BlockchainTech #CloudComputing",
     "create post": "Share your event experience with the community! You can:\n- Post event photos\n- Share your achievements\n- Tag your team members\n- Add relevant hashtags\n- Engage with comments and likes",
     "success stories": "Recent highlight: Dhanushree and team won the Best Innovation award at #AIHackathon2024! Join our upcoming events to showcase your innovations."

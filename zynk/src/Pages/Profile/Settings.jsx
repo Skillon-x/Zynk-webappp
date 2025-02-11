@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ProfileImage from "../../assets/Avatar/Dhanushree.png"
 import { 
   Bell, Lock, User, Globe, Moon, Key, LogOut, Shield, HelpCircle,
   Calendar, Briefcase, BookOpen, Tag, Share2, CreditCard, Activity,
@@ -60,7 +61,7 @@ const Settings = () => {
             <div className="relative">
               <div className="w-24 h-24 rounded-full bg-primary-100 overflow-hidden">
                 <img 
-                  src="/api/placeholder/96/96" 
+                  src={ProfileImage} 
                   alt="Profile"
                   className="w-full h-full object-cover" 
                 />

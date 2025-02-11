@@ -1,8 +1,18 @@
 import React from 'react';
 import { Search, ArrowRight, Sparkles } from 'lucide-react';
 import HeroImage from "../../assets/BackgroundImage.jpeg"; 
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleEvents = () => {
+    navigate('events/all');
+
+    
+
+  };
+
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-primary-800 via-primary-700 to-tertiary-700 overflow-hidden">
       {/* Decorative backgrounds */}
@@ -32,17 +42,12 @@ const Hero = () => {
               </p>
             </div>
 
-            {/* Search Section */}
+            {/* Explore Events Button */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary-300" />
-                <input
-                  type="text"
-                  placeholder="Search for events..."
-                  className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/10 backdrop-blur-md border border-primary-300/20 text-secondary-50 placeholder-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 transition-all"
-                />
-              </div>
-              <button className="px-8 py-4 bg-tertiary-600 hover:bg-tertiary-500 text-secondary-50 rounded-xl font-medium transition-all flex items-center gap-2 group">
+              <button  
+                onClick={handleEvents} 
+                className="px-8 py-4 bg-tertiary-600 hover:bg-tertiary-500 text-secondary-50 rounded-xl font-medium transition-all flex items-center gap-2 group"
+              >
                 Explore Events
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -67,12 +72,7 @@ const Hero = () => {
           <div className="relative">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
               <div className="aspect-[4/3] w-full bg-gradient-to-br from-primary-600/30 to-tertiary-600/30 backdrop-blur-md border border-primary-300/20">
-                {/* Replace this div with your image */}
-                <img
-                  src={HeroImage}
-                  alt="Hero"
-                  className="w-full h-full object-cover"
-                />
+                <img src={HeroImage} alt="Hero" className="w-full h-full object-cover" />
               </div>
             </div>
 

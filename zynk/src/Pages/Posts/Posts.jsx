@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { Heart, MessageCircle, Share2, Bookmark, MoreHorizontal, Camera, Upload, X, MapPin } from 'lucide-react';
 import Image1 from "../../assets/PostsImage/Image1.jpg";
 import Image2 from "../../assets/PostsImage/Image2.jpg";
-import avatar1 from "../../assets/Avatar/dhanushree.png";
-import avatar2 from "../../assets/Avatar/code_master.png";
+import Image3 from "../../assets/PostsImage/pes.png";
+import Image4 from "../../assets/PostsImage/image4.png";
+import Image5 from "../../assets/PostsImage/image5.png";
+import Image6 from "../../assets/PostsImage/image6.png";
+import Image7 from "../../assets/PostsImage/image7.png"
+import avatar1 from "../../assets/Avatar/Dhanushree.png";
+import avatar2 from "../../assets/Avatar/Code_master.png";
 
 const EventPost = ({ post, onLike, onSave }) => {
   const [comment, setComment] = useState('');
@@ -237,6 +242,156 @@ const Posts = () => {
       },
       event: {
         image: Image2,
+        likes: 128,
+        caption: 'Excited to share our workshop on Quantum Computing at #TechCon2024! Amazing turnout and great questions from everyone. Thanks for having me! 🚀 #QuantumComputing #Tech',
+        timestamp: '5 HOURS AGO',
+        comments: [
+          {
+            username: 'quantum_dev',
+            text: 'Brilliant presentation! Looking forward to the next one.'
+          },
+          {
+            username: 'tech_enthusiast',
+            text: 'The practical examples were super helpful! 🙌'
+          }
+        ]
+      },
+      liked: false,
+      saved: false
+    },
+    {
+      id: 3,
+      user: {
+        username: 'Max',
+        avatar: avatar2
+      },
+      event: {
+        image: Image3,
+        likes: 128,
+        caption: 'Me and my team Cyber Bolt had participated in the 24 hour Hackathon at PES College, Mandya on January 5th and 6th, 2024, where we worked on "Integrating Blockchain for Finance" as our problem statement. After two intense days of coding, collaboration, and innovation, we are proud to announce that we secured 2nd place! 🏆',
+        timestamp: '5 HOURS AGO',
+        comments: [
+          {
+            username: 'Suresh',
+            text: 'Brilliant presentation! Looking forward to the next one.'
+          },
+          {
+            username: 'Max',
+            text: 'The practical examples were super helpful! 🙌'
+          }
+        ]
+      },
+      liked: false,
+      saved: false
+    },
+    {
+      id: 4,
+      user: {
+        username: 'Maria Joseph',
+        avatar: avatar2
+      },
+      event: {
+        image: Image4,
+        likes: 128,
+        caption: 'Excited to share our workshop on Quantum Computing at #TechCon2024! Amazing turnout and great questions from everyone. Thanks for having me! 🚀 #QuantumComputing #Tech',
+        timestamp: '5 HOURS AGO',
+        comments: [
+          {
+            username: 'quantum_dev',
+            text: 'Brilliant presentation! Looking forward to the next one.'
+          },
+          {
+            username: 'tech_enthusiast',
+            text: 'The practical examples were super helpful! 🙌'
+          }
+        ]
+      },
+      liked: false,
+      saved: false
+    },
+    {
+      id: 5,
+      user: {
+        username: 'Rashni',
+        avatar: avatar2
+      },
+      event: {
+        image: Image5,
+        likes: 128,
+        caption: 'Excited to share our workshop on Quantum Computing at #TechCon2024! Amazing turnout and great questions from everyone. Thanks for having me! 🚀 #QuantumComputing #Tech',
+        timestamp: '5 HOURS AGO',
+        comments: [
+          {
+            username: 'quantum_dev',
+            text: 'Brilliant presentation! Looking forward to the next one.'
+          },
+          {
+            username: 'tech_enthusiast',
+            text: 'The practical examples were super helpful! 🙌'
+          }
+        ]
+      },
+      liked: false,
+      saved: false
+    },
+    {
+      id: 6,
+      user: {
+        username: 'Ullas',
+        avatar: avatar2
+      },
+      event: {
+        image: Image6,
+        likes: 128,
+        caption: 'Excited to share our workshop on Quantum Computing at #TechCon2024! Amazing turnout and great questions from everyone. Thanks for having me! 🚀 #QuantumComputing #Tech',
+        timestamp: '5 HOURS AGO',
+        comments: [
+          {
+            username: 'quantum_dev',
+            text: 'Brilliant presentation! Looking forward to the next one.'
+          },
+          {
+            username: 'tech_enthusiast',
+            text: 'The practical examples were super helpful! 🙌'
+          }
+        ]
+      },
+      liked: false,
+      saved: false
+    },
+    {
+      id: 7,
+      user: {
+        username: 'code_master',
+        avatar: avatar2
+      },
+      event: {
+        image: Image7,
+        likes: 128,
+        caption: 'Excited to share our workshop on Quantum Computing at #TechCon2024! Amazing turnout and great questions from everyone. Thanks for having me! 🚀 #QuantumComputing #Tech',
+        timestamp: '5 HOURS AGO',
+        comments: [
+          {
+            username: 'quantum_dev',
+            text: 'Brilliant presentation! Looking forward to the next one.'
+          },
+          {
+            username: 'tech_enthusiast',
+            text: 'The practical examples were super helpful! 🙌'
+          }
+        ]
+      },
+      liked: false,
+      saved: false
+    },
+    {
+      id: 8,
+      user: {
+        username: 'code_master',
+        avatar: avatar2
+      },
+      event: {
+        image: Image1,
         likes: 128,
         caption: 'Excited to share our workshop on Quantum Computing at #TechCon2024! Amazing turnout and great questions from everyone. Thanks for having me! 🚀 #QuantumComputing #Tech',
         timestamp: '5 HOURS AGO',

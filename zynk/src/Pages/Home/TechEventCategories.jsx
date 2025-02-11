@@ -24,6 +24,10 @@ import {
   Navigation
 } from 'lucide-react';
 
+
+const handleRegister = () => 
+  navigate('/register');
+
 const DateFilterButton = ({ label, onClick, isActive }) => (
   <button
     onClick={onClick}
@@ -146,7 +150,7 @@ const EventCard = ({ event }) => (
         <span className="text-2xl font-bold text-primary-700">
           {event.price}
         </span>
-        <button className="px-6 py-2 bg-tertiary-600 text-white rounded-lg hover:bg-tertiary-700 transition-colors">
+        <button onClick={handleRegister} className="px-6 py-2 bg-tertiary-600 text-white rounded-lg hover:bg-tertiary-700 transition-colors">
           Register Now
         </button>
       </div>

@@ -22,7 +22,8 @@ const Navbar = () => {
         { title: 'Featured Events', path: '/events/featured' },
         { title: 'All Events', path: '/events/all' },
         { title: 'Conferences', path: '/events/conferences' },
-        { title: 'Hackathons', path: '/events/hackathons' }
+        { title: 'Hackathons', path: '/events/hackathons' },
+        { title: 'GamifiedZynk', path: '/game' }
       ]
     },
     { title: 'About', path: '/about' },

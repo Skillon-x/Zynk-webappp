@@ -2,19 +2,25 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Calendar, MapPin, Users } from "lucide-react";
 import image1 from "../../assets/FeaturedHackathons/GenAI.png"
 import image2 from "../../assets/FeaturedHackathons/Ethindia.jpeg"
-import image3 from "../../assets/FeaturedHackathons/GenAI.png"
-import image4 from "../../assets/FeaturedHackathons/GenAI.png"
-import image5 from "../../assets/FeaturedHackathons/GenAI.png"
+import image3 from "../../assets/FeaturedHackathons/ctf.png"
+import image4 from "../../assets/workshop/blockchainworkshop.png"
+import image5 from "../../assets/FeaturedHackathons/Ethindia.jpeg"
 import image6 from "../../assets/FeaturedHackathons/GenAI.png"
-import image7 from "../../assets/FeaturedHackathons/GenAI.png"
-import image8 from "../../assets/FeaturedHackathons/GenAI.png"
+import image7 from "../../assets/FeaturedHackathons/fullstack1.jpg"
+import image8 from "../../assets/FeaturedHackathons/fullstack2.jpg"
 import image9 from "../../assets/FeaturedHackathons/GenAI.png"
 import image10 from "../../assets/FeaturedHackathons/GenAI.png"
+import { useNavigate } from 'react-router-dom';
+
 
 const Hackathon = () => {
+  const navigate= useNavigate();
   const [activeCategory, setActiveCategory] = useState('all');
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const handleRegister = () => {
+    navigate('/register');
+    
+  };
   const categories = [
     { id: 'all', label: 'All Events' },
     { id: 'aiml', label: 'AI & ML' },
@@ -107,7 +113,7 @@ const Hackathon = () => {
       title: 'Full stack dev',
       category: 'fullstack',
       image: '/images/ethereum-hackathon.jpg',
-      date: 'image7',
+      date: image7,
       location: 'Online',
       participants: '50 participating',
       tags: ['Webdev', 'Full Stack', 'React'],
@@ -228,7 +234,7 @@ const Hackathon = () => {
                     {/* Card Image */}
                     <div className="relative h-48 bg-gray-200">
                       <img
-                        src="/api/placeholder/400/320"
+                        src={hackathon.image}
                         alt={hackathon.title}
                         className="w-full h-full object-cover"
                       />
@@ -293,7 +299,7 @@ const Hackathon = () => {
                             ₹{hackathon.prizePool}
                           </p>
                         </div>
-                        <button className="bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors">
+                        <button onClick={handleRegister} className="bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors">
                           Register Now
                         </button>
                       </div>

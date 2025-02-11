@@ -1,6 +1,6 @@
 // src/Components/Layout/layout.jsx
 import React from 'react';
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Chatbot from "../Common/Chatbot";
 

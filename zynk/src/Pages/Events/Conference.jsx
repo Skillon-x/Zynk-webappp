@@ -1,81 +1,104 @@
 import React, { useState } from 'react';
 import { Calendar, MapPin, Star, Clock, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import image1 from "../../assets/FeaturedEvents/htmd.png"
 import image2 from "../../assets/Conference/devops.png"
-import image4 from "../../assets/Featuredevents/AIcamp.png"
+import image4 from "../../assets/FeaturedEvents/AIcamp.png"
 import image3 from "../../assets/Conference/web3.png"
 import image5 from "../../assets/Conference/blockchain.png"
 import image6 from "../../assets/Conference/devops.png"
 import image7 from "../../assets/Conference/datascience.png"
-const EventCard = ({ event }) => (
-  <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-secondary-200 hover:shadow-lg transition-all h-full">
-    <div className="relative">
-      <img
-        src={event.image}
-        alt={event.title}
-        className="w-full h-48 object-cover"
-      />
-      <div className="absolute top-4 left-4">
-        <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-          event.type === 'Conference' 
-            ? 'bg-primary-100 text-primary-700'
-            : 'bg-tertiary-100 text-tertiary-700'
-        }`}>
-          {event.type}
-        </span>
-      </div>
-      <div className="absolute top-4 right-4 flex items-center bg-white rounded-full px-2 py-1 shadow-md">
-        <Star className="w-4 h-4 text-yellow-400" />
-        <span className="ml-1 text-sm font-medium">{event.rating}</span>
-      </div>
-    </div>
 
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-primary-900 mb-2">{event.title}</h3>
-      
-      <div className="space-y-2 mb-4">
-        <div className="flex items-center text-primary-600">
-          <Calendar className="w-4 h-4 mr-2" />
-          {event.date}
-        </div>
-        <div className="flex items-center text-primary-600">
-          <Clock className="w-4 h-4 mr-2" />
-          {event.time}
-        </div>
-        <div className="flex items-center text-primary-600">
-          <MapPin className="w-4 h-4 mr-2" />
-          {event.venue}
-        </div>
-        <div className="flex items-center text-primary-600">
-          <Users className="w-4 h-4 mr-2" />
-          {event.attendees} attending
-        </div>
-      </div>
+export const EventCard = ({ event }) => {
+  const navigate = useNavigate();
 
-      <div className="flex flex-wrap gap-2 mb-4">
-        {event.tags.map((tag) => (
-          <span
-            key={tag}
-            className="px-3 py-1 bg-secondary-100 text-primary-600 rounded-full text-sm"
-          >
-            {tag}
+  const handleRegister = () => {
+    navigate('/register', { 
+      state: { 
+        eventId: event.id,
+        eventTitle: event.title,
+        eventDate: event.date,
+        eventTime: event.time,
+        eventVenue: event.venue,
+        eventPrice: event.price,
+        eventType: event.type
+      }
+    });
+  };
+
+  return (
+    <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-secondary-200 hover:shadow-lg transition-all h-full">
+      <div className="relative">
+        <img
+          src={event.image}
+          alt={event.title}
+          className="w-full h-48 object-cover"
+        />
+        <div className="absolute top-4 left-4">
+          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+            event.type === 'Conference' 
+              ? 'bg-primary-100 text-primary-700'
+              : 'bg-tertiary-100 text-tertiary-700'
+          }`}>
+            {event.type}
           </span>
-        ))}
+        </div>
+        <div className="absolute top-4 right-4 flex items-center bg-white rounded-full px-2 py-1 shadow-md">
+          <Star className="w-4 h-4 text-yellow-400" />
+          <span className="ml-1 text-sm font-medium">{event.rating}</span>
+        </div>
       </div>
 
-      <div className="flex items-center justify-between pt-4 border-t border-secondary-200">
-        <span className="text-2xl font-bold text-primary-700">
-          {event.price}
-        </span>
-        <button className="px-6 py-2 bg-tertiary-600 text-white rounded-lg hover:bg-tertiary-700 transition-colors">
-          Register Now
-        </button>
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-primary-900 mb-2">{event.title}</h3>
+        
+        <div className="space-y-2 mb-4">
+          <div className="flex items-center text-primary-600">
+            <Calendar className="w-4 h-4 mr-2" />
+            {event.date}
+          </div>
+          <div className="flex items-center text-primary-600">
+            <Clock className="w-4 h-4 mr-2" />
+            {event.time}
+          </div>
+          <div className="flex items-center text-primary-600">
+            <MapPin className="w-4 h-4 mr-2" />
+            {event.venue}
+          </div>
+          <div className="flex items-center text-primary-600">
+            <Users className="w-4 h-4 mr-2" />
+            {event.attendees} attending
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {event.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1 bg-secondary-100 text-primary-600 rounded-full text-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-between pt-4 border-t border-secondary-200">
+          <span className="text-2xl font-bold text-primary-700">
+            {event.price}
+          </span>
+          <button 
+            onClick={handleRegister}
+            className="px-6 py-2 bg-tertiary-600 text-white rounded-lg hover:bg-tertiary-700 transition-colors"
+          >
+            Register Now
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
-const EventCarousel = ({ events, title }) => {
+export const EventCarousel = ({ events, title }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalGroups = Math.ceil(events.length / 3);
 
@@ -139,7 +162,7 @@ const EventCarousel = ({ events, title }) => {
   );
 };
 
-const Conference = () => {
+export const Conference = () => {
   const events = {
     conferences: [
       {
